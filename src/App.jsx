@@ -13,7 +13,7 @@ const App = () => {
         <FeatureCards />
         <CLITerminal />
       </main>
-      <footer className="border-t border-emerald-400/20 py-8">
+      <footer className="border-t border-red-400/20 py-8">
         <div className="container mx-auto px-6 text-center text-sm text-zinc-400">
           <p>DATASP1KE — Own the data stream. See the cost of the code.</p>
         </div>

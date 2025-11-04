@@ -17,14 +17,14 @@ const Sparkline = ({ points = [] }) => {
     <svg width={width} height={height} className="overflow-visible">
       <defs>
         <linearGradient id="spark" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#34d399" />
-          <stop offset="100%" stopColor="#10b981" />
+          <stop offset="0%" stopColor="#f87171" />
+          <stop offset="100%" stopColor="#ef4444" />
         </linearGradient>
       </defs>
       <path d={path} fill="none" stroke="url(#spark)" strokeWidth="2" />
       <g>
         {points.map((v, i) => (
-          <circle key={i} cx={i * step} cy={height - norm(v)} r="1.8" fill="#34d399" />
+          <circle key={i} cx={i * step} cy={height - norm(v)} r="1.8" fill="#ef4444" />
         ))}
       </g>
     </svg>
@@ -46,28 +46,28 @@ const SpikeConsole = () => {
   return (
     <section id="console" className="relative -mt-12 pb-8 sm:pb-16 md:pb-24">
       <div className="container mx-auto px-6">
-        <div className="mb-6 flex items-center gap-3 text-emerald-300">
+        <div className="mb-6 flex items-center gap-3 text-red-300">
           <Activity className="h-5 w-5" />
           <h2 className="text-lg font-medium tracking-wide">Unified Spike Console</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {items.map(([provider, points]) => (
-            <div key={provider} className="rounded-xl border border-emerald-400/20 bg-zinc-900/60 p-4 backdrop-blur">
+            <div key={provider} className="rounded-xl border border-red-400/20 bg-zinc-900/60 p-4 backdrop-blur">
               <div className="mb-2 flex items-center justify-between">
                 <span className="text-sm font-medium text-zinc-300">{provider}</span>
-                <span className="text-sm text-emerald-400">{points[points.length - 1]} creds/min</span>
+                <span className="text-sm text-red-400">{points[points.length - 1]} creds/min</span>
               </div>
               <Sparkline points={points} />
             </div>
           ))}
         </div>
 
-        <div className="mt-6 flex items-center justify-between rounded-xl border border-emerald-400/20 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 p-4">
+        <div className="mt-6 flex items-center justify-between rounded-xl border border-red-400/20 bg-gradient-to-r from-red-500/10 to-rose-500/10 p-4">
           <p className="text-sm text-zinc-300">
             Current burn rate across rigs
           </p>
-          <p className="text-2xl font-semibold text-emerald-400">
+          <p className="text-2xl font-semibold text-red-400">
             {total.toFixed(0)} creds/min
           </p>
         </div>
